@@ -2,6 +2,61 @@ Program was developed in Keil MicroVision. Setting up the starter files was very
 
 Collaborators: [@jqazi05](https://github.com/jqazi05)
 
-This paper explores the design, implementation, and testing of an embedded motion tracking system configured to operate as a Universal Serial Bus (USB) Human Interface Device (HID) mouse. The system uses the Texas Instruments Tiva C Series EK-TM4C123GXL to process the physical inputs and transmit them to the USB Host in real time. Due to a supply constraint, the original sensor, the PMW3389 laser motion sensor, was not used and was successfully replaced with the LIS3DH 3-axis accelerometer. This effectively turned the mouse into an air mouse, which is capable of two-dimensional cursor movements on a monitor by tilting the sensor on the X- and Y-axis. The project uses a combination of Universal Asynchronous Receiver-Transmitter (UART), Serial Peripheral Interface (SPI), and USB to make this possible. The device achieved an overall latency of 1.14 milliseconds for a combination click and motion action, which is under the 5 ms and 12 ms thresholds, respectively. Additionally, it has a 100% click reliability without double-detection. The designers also reflect upon the effects of the engineering design process and the usage of artificial intelligence (AI) throughout the project.  Ultimately, this project successfully demonstrated the integration of the previously mentioned serial communication protocols, software architecture application, and ECE 473 coursework integration to create a functional, high-speed device.
+## Embedded USB HID Air Mouse (Tiva C + LIS3DH)
+
+This project implements a real-time embedded motion tracking system that functions as a USB Human Interface Device (HID) mouse. It runs on the **Texas Instruments EK-TM4C123GXL (Tiva C Series)** and translates physical motion into cursor movement on a host computer.
+
+### Overview
+
+Originally designed to use the **PMW3389 laser motion sensor**, the system was adapted to use the **LIS3DH 3-axis accelerometer** due to supply constraints. This change effectively converts the device into an *air mouse*, where cursor movement is controlled by tilting the device along the X and Y axes.
+
+### Features
+
+* Real-time USB HID mouse functionality
+* Air mouse control using accelerometer input
+* Reliable button input handling (no double-detection)
+* Low-latency performance for motion and click events
+
+### Hardware
+
+* **MCU:** Texas Instruments EK-TM4C123GXL (Tiva C Series)
+* **Sensor:** LIS3DH 3-axis accelerometer
+
+### Communication Protocols
+
+* **SPI** → Sensor data acquisition
+* **UART** → Debugging / serial communication
+* **USB (HID)** → Host communication (mouse input)
+
+### Performance
+
+* **Latency:** ~1.14 ms (combined click + motion)
+
+  * Meets target thresholds:
+
+    * Click: < 5 ms
+    * Motion: < 12 ms
+* **Click Reliability:** 100% (no false double clicks detected)
+
+### Implementation Notes
+
+* Motion is derived from accelerometer tilt (X and Y axes)
+* Embedded software handles sensor polling, input processing, and USB report generation
+* Designed with modular architecture to support sensor substitution
+
+### Learning Outcomes
+
+This project demonstrates:
+
+* Integration of multiple serial communication protocols (SPI, UART, USB)
+* Embedded software design for real-time systems
+* Practical application of USB HID stack on microcontrollers
+* System-level debugging and optimization
+* Use of AI tools alongside peer collaboration during development
+
+### Status
+
+✅ Fully functional prototype
+✅ Meets latency and reliability targets
 
 For the full report is located on my [Linkedin.](https://www.linkedin.com/in/cadendo/overlay/Project/2027133325/treasury/?profileId=ACoAAEcnO2sB-eHS2fDpXoIFiYhYm3Lo2qur-Wc)
